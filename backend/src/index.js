@@ -3,11 +3,12 @@ import dotenv from "dotenv";
 // Local files
 import authRoutes from "./routes/auth.route.js";
 import connectDb from "./db/connect.js";
+dotenv.config();
 
+const app = express();
 const PORT = process.env.PORT;
 // global middlewares
-dotenv.config();
-const app = express();
+app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 
